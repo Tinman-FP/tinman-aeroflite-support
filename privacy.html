@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tinman Aeroflite Privacy Policy</title>
+  <meta name="description" content="Tinman Aeroflite privacy policy.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <p class="eyebrow">TINMAN AEROFLITE</p>
+    <h1>Privacy Policy</h1>
+    <p class="lead">Effective for Tinman Aeroflite version 1.1.</p>
+
+    <section>
+      <h2>Our approach</h2>
+      <p>Tinman Aeroflite is a private operational document assistant. It has no advertising, tracking, analytics, data brokerage, or third-party AI service. Questions, answers, and approved library excerpts remain on the organization’s Tinman server.</p>
+    </section>
+
+    <section>
+      <h2>Information used</h2>
+      <ul>
+        <li><strong>Accounts:</strong> The server stores a username, role, Argon2id password hash, and revocable session records. The app stores only an opaque session token in the device Keychain and never stores the password.</li>
+        <li><strong>Authorized devices:</strong> The server stores a random app-installation identifier, device name, platform, app version, and first/last sign-in time so the owner can identify and revoke devices. It does not collect the advertising identifier.</li>
+        <li><strong>Questions:</strong> Question text is sent to the Tinman server solely to retrieve approved evidence and generate an answer. Question and answer text are not retained in the audit log. The current conversation remains only in app memory.</li>
+        <li><strong>Operational logs:</strong> The server stores limited account-management and answer-status events for security and operation. A network address is used temporarily to limit failed login attempts. Audit events are removed after 90 days and failed-login network addresses after 15 minutes.</li>
+      </ul>
+      <p>The service does not sell or share this information and does not use it for tracking, advertising, analytics, or training an external AI model.</p>
+    </section>
+
+    <section>
+      <h2>Access, correction, and deletion</h2>
+      <p>The organization’s owner controls account provisioning. The owner can reset a password, revoke an individual device or active sessions, disable access, or permanently delete an account. A signed-in user can permanently delete their own account from Settings. Contact the organization’s Tinman Aeroflite owner for access or correction.</p>
+    </section>
+
+    <section>
+      <h2>Security</h2>
+      <p>The app requires encrypted HTTPS transport. The API and local AI agent bind only to the Tinman server’s loopback interface. Release traffic reaches that service through a dedicated outbound-only encrypted tunnel; no public API port is opened on the server. Passwords are never stored in plaintext.</p>
+    </section>
+
+    <p><a href="index.html">Return to support</a></p>
+  </main>
+</body>
+</html>
