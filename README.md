@@ -6,3 +6,4 @@ not belong in this repository.
 
 - Support URL: <https://tinman-fp.github.io/tinman-aeroflite-support/>
 - Privacy URL: <https://tinman-fp.github.io/tinman-aeroflite-support/privacy.html>
+- Authorized Use & Safety Terms: <https://tinman-fp.github.io/tinman-aeroflite-support/terms.html>
