@@ -23,7 +23,7 @@
       <ul>
         <li><strong>Accounts:</strong> The server stores the approved sign-in email address, role, Argon2id password hash, and revocable session records. The app stores an opaque session token and time-limited offline authorization in the device Keychain and never stores the password.</li>
         <li><strong>Authorized devices:</strong> The server stores a random app-installation identifier, device name, platform, app version, and first/last sign-in time so the owner can identify and revoke devices. It does not collect the advertising identifier.</li>
-        <li><strong>Downloaded content:</strong> After sign-in, the app downloads a content-only search database and AI model from the private server. It stores both with iOS file protection, excludes them from device backups, and removes them when the user signs out or deletes the account.</li>
+        <li><strong>Downloaded content:</strong> After sign-in, the app downloads a content-only search database and AI model from the private server. The database is encrypted on the device with AES-256 SQLCipher using a random per-device key. That key remains in the non-synchronizing device Keychain under user-presence access control, so Face ID, Touch ID, or the device passcode is required whenever the library is opened. The app stores both downloads with iOS file protection, excludes them from device backups, and removes them when the user signs out or deletes the account.</li>
         <li><strong>Questions:</strong> The app searches and answers questions entirely on the device. Question and answer text is not sent to or retained by the Tinman server. The current conversation remains only in app memory.</li>
         <li><strong>Operational logs:</strong> The server stores limited account-management, authorized-device, and update events for security and operation. A network address is used temporarily to limit failed login attempts. Audit events are removed after 90 days and failed-login network addresses after 15 minutes.</li>
       </ul>
@@ -37,7 +37,7 @@
 
     <section>
       <h2>Security</h2>
-      <p>The app requires encrypted HTTPS transport for authentication and verified updates. The API binds only to the Tinman server’s loopback interface. Release traffic reaches that service through a dedicated outbound-only encrypted tunnel; no public API port is opened on the server. Passwords are never stored in plaintext. A device-only offline authorization lease expires no more than 24 hours after the last successful online verification.</p>
+      <p>The app requires encrypted HTTPS transport for authentication and verified updates. The API binds only to the Tinman server’s loopback interface. Release traffic reaches that service through a dedicated outbound-only encrypted tunnel; no public API port is opened on the server. Passwords are never stored in plaintext. A device-only offline authorization lease expires no more than 24 hours after the last successful online verification. Backgrounding the app clears the database key from app memory and locks the local library.</p>
     </section>
 
     <p><a href="index.html">Return to support</a> · <a href="terms.html">Authorized Use &amp; Safety Terms</a></p>
